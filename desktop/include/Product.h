@@ -1,16 +1,28 @@
 #include <string>
-
+#include <vector>
+#include <iostream>
 using namespace std;
 
 class Product{
 	string _name;
 	float _price;
-	string _type;
 public:
-	Product(): _name("unnamed"), _price(0), _type("uncategorized") {}
-	Product(string name, float price, string type);
+	Product();
+	Product(string name, float price);
 
+	// Getters
 	string getName();
 	int getPrice();
-	string getType();
+
+	// Setters
+	void setName(string name);
+	void setPrice(int price);
+};
+
+class ProductList{
+	vector<Product> products; 
+public:
+	ProductList();
+	void addProduct(string name, float price);
+	Product* getProductByName(string name);
 };
