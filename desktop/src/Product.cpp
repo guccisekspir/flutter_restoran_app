@@ -47,17 +47,9 @@ Product* ProductList::getProductByName(string name){
 	vector<Product>::iterator iter = products.begin();
 	while( iter != products.end() ){
 		if( (*iter).getName() == name){
-			cout << (*iter).getName() << " ürünü bulundu!" << endl; 
 			return &(*iter);
 		}
 		iter++;
 	}
-/* 	
-	for(auto product : products){
-		if( product.getName() == "name" ){
-			cout << product.getName() << " ürünü bulundu!" << endl; 
-			return &product;
-		}
-	} */
 	return nullptr;
 }

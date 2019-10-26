@@ -48,20 +48,11 @@ Table* TableList::getTableByName(string name){
 	vector<Table>::iterator iter = tables.begin();
 	while( iter != tables.end() ){
 		if( (*iter).getName() == name){
-			cout << (*iter).getName() << " adlı masa bulundu!" << endl;
 			return &(*iter);
 		}
 		iter++;
 	}
-
-/* 	
-	for(auto table : tables){
-		if(table.getName() == name){
-			cout << table.getName() << " adlı masa bulundu!" << endl;
-			return &table;
-		}
-	}
- */	return nullptr;
+	return nullptr;
 }
 
 // Getters

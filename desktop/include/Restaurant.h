@@ -18,7 +18,7 @@ public:
 	Restaurant(string name);
 	void addTable(string name);
 	void addProduct(string name, float price);
-	void addOrder(string tableName, string productName, int quantity);
+	bool addOrder(string tableName, string productName, int quantity);
 
 	void printTables();
 

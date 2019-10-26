@@ -18,9 +18,14 @@ void Restaurant::addProduct(string name, float price){
 	productList.addProduct(name, price);
 }
 
-void Restaurant::addOrder(string tableName, string productName, int quantity){
-
-	tables.getTableByName(tableName)->addOrder(productList.getProductByName(productName), quantity);
+bool Restaurant::addOrder(string tableName, string productName, int quantity){
+	Product* product = productList.getProductByName(productName);
+	Table* table = tables.getTableByName(tableName);
+	if( product != nullptr && table != nullptr){
+		table->addOrder(product, quantity);
+		return true;
+	}
+	return false;
 }
 
 void Restaurant::printTables(){
@@ -28,17 +33,18 @@ void Restaurant::printTables(){
 		cout << table.getName() <<  endl;
 		float sum = 0;
 		for(auto order : table.getOrders()){
-			cout << order._quantity << " x " <<
-			setw(15) << setfill('_') << left <<
+			cout << setw(2) << setfill(' ') << right <<
+			order._quantity << " x " <<
+			setw(20) << setfill('_') << left <<
 			order._product->getName() << 
-			setw(15) << setfill('_') << right << 
+			setw(5) << setfill('_') << right << 
 			order._product->getPrice() * order._quantity  
 			<< "₺" <<  endl; 
 			
 			sum += order._product->getPrice() * order._quantity;
 		}
-		cout << setw(30) << setfill('_') << right <<
-		"Total:" << sum << "₺" << endl << endl;
+		cout << setw(28) << setfill(' ') << right <<
+		"Total: " << sum << "₺" << endl << endl;
 	}
 	cout << endl;
 }
