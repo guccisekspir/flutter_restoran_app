@@ -1,6 +1,9 @@
+#pragma once
 #include <vector>
 #include <string>
-#include <Product.h>
+#include <iostream>
+#include "Product.h"
+using namespace std;
 
 struct Order{
 	Product* _product;
@@ -10,7 +13,7 @@ struct Order{
 
 class Table{
 	string _name;
-	vector<Order> orders;
+	vector<Order> _orders;
 
 public:
 	Table();
@@ -20,6 +23,7 @@ public:
 	
 	// Getters
 	string getName();
+	vector<Order> getOrders();
 
 	// Setters
 	void setName(string name);
@@ -31,4 +35,7 @@ public:
 	TableList();
 	void addTable(string name);
 	Table* getTableByName(string name);
+
+	// Getter
+	vector<Table>* getTables();
 };
