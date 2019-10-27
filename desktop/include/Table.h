@@ -12,30 +12,33 @@ struct Order{
 };
 
 class Table{
-	string _name;
-	vector<Order> _orders;
+	string 			_name;
+	vector<Order> 	_orders;
 
 public:
-	Table();
 	Table(string name);
 
 	void addOrder(Product* product, int quantity);
-	
-	// Getters
-	string getName();
-	vector<Order> getOrders();
+	void deleteOrder(string name, int quantity);
+	float paymentAmount();
+	void clearOrders();
 
-	// Setters
-	void setName(string name);
+	// Getters & Setters
+	string 		  	getName();
+	vector<Order> 	getOrders();
+	void 			setName(string name);
 };
 
 class TableList{
-	vector<Table> tables;
+	vector<Table> 	tables;
+	int 			_size;
 public:
 	TableList();
 	void addTable(string name);
+	void deleteTable(string name);
 	Table* getTableByName(string name);
 
-	// Getter
+	// Getters & Setters
 	vector<Table>* getTables();
+	int getSize();
 };

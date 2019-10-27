@@ -35,12 +35,25 @@ void Product::setPrice(int price){
 // ProductList Functions
 
 ProductList::ProductList(){
-
+	_size = 0;
 }
 
 void ProductList::addProduct(string name, float price){
 	Product newProduct(name, price);
 	products.push_back(newProduct);
+	_size++;
+}
+
+void ProductList::deleteProduct(string name){
+	vector<Product>::iterator iter = products.begin();
+	while( iter != products.end() ){
+		if( (*iter).getName() == name){
+			products.erase(iter);
+			_size--;
+			return;
+		}
+		iter++;
+	}
 }
 
 Product* ProductList::getProductByName(string name){
@@ -52,4 +65,14 @@ Product* ProductList::getProductByName(string name){
 		iter++;
 	}
 	return nullptr;
+}
+
+// Getters & Setters
+
+vector<Product>* ProductList::getProducts(){
+	return &products;
+}
+
+int ProductList::getSize(){
+	return _size;
 }

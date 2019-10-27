@@ -9,22 +9,32 @@
 using namespace std;
 
 class Restaurant{
-	string _name;
+	string 		_name;
+	float 		_balance;
 	ProductList productList;
-	TableList tables;
+	TableList 	tableList;
 	// vector<Waiter> waiters; 
 public:
-	Restaurant();
 	Restaurant(string name);
 	void addTable(string name);
+	void deleteTable(string name);
+
 	void addProduct(string name, float price);
+	void deleteProduct(string name);
+
 	bool addOrder(string tableName, string productName, int quantity);
+	bool deleteOrder(string tableName, string productName, int quantity);
+	
+	void checkOut(string name);
 
 	void printTables();
+	void printProducts();
 
-	// Getters
-	string getName();
-
-	// Setters
-	void setName(string name);
+	// Getters & Setters
+	string 	getName();
+	void 	setName(string name);
+	float 	getBalance();
+	void  	setBalance(int balance);
+	int 	getTableSize();
+	int 	getProductSize();
 };
