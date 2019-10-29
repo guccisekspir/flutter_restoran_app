@@ -13,6 +13,6 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
+Artisan::command('netapi', function () {
+    $this->comment("netapi is written by dogukan.dev");
+})->describe('Netapi ile alakali bi seyler.');

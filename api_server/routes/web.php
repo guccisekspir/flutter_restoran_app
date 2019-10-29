@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json('netapi online. make your api calls under /api directory');
 });
