@@ -7,13 +7,13 @@ using namespace std;
 
 struct Order{
 	Product* _product;
-	int _quantity;
+	int 	 _quantity;
 	//Order()
 };
 
 class Table{
-	string 			_name;
-	vector<Order> 	_orders;
+	string 		  _name;
+	vector<Order> _orders;
 
 public:
 	Table(string name);
@@ -30,8 +30,8 @@ public:
 };
 
 class TableList{
-	vector<Table> 	tables;
-	int 			_size;
+	vector<Table> tables;
+	int 		  _size;
 public:
 	TableList();
 	void addTable(string name);
