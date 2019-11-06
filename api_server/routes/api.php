@@ -17,3 +17,4 @@ Route::get('/', function() {
     return response()->json('api server online. token: ' . Hash::make(time()));
 });
 
+Route::resource('restaurant', 'RestaurantController');
