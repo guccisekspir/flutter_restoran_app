@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include <string>
+#include <QString>
 #include <iostream>
-#include "Product.h"
+#include "product.h"
 using namespace std;
 
 struct Order{
@@ -12,21 +12,21 @@ struct Order{
 };
 
 class Table{
-	string 		  _name;
+	QString 		  _name;
 	vector<Order> _orders;
 
 public:
-	Table(string name);
+	Table(QString name);
 
 	void addOrder(Product* product, int quantity);
-	void deleteOrder(string name, int quantity);
+	void deleteOrder(QString name, int quantity);
 	float paymentAmount();
 	void clearOrders();
 
 	// Getters & Setters
-	string 		  	getName();
+	QString 		  	getName();
 	vector<Order> 	getOrders();
-	void 			setName(string name);
+	void 			setName(QString name);
 };
 
 class TableList{
@@ -34,9 +34,9 @@ class TableList{
 	int 		  _size;
 public:
 	TableList();
-	void addTable(string name);
-	void deleteTable(string name);
-	Table* getTableByName(string name);
+	void addTable(QString name);
+	void deleteTable(QString name);
+	Table* getTableByName(QString name);
 
 	// Getters & Setters
 	vector<Table>* getTables();

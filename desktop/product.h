@@ -1,20 +1,20 @@
 #pragma once
-#include <string>
+#include <QString>
 #include <vector>
 #include <iostream>
 using namespace std;
 
 class Product{
-	string 	_name;
+	QString 	_name;
 	float	_price;
 public:
 	Product();
-	Product(string name, float price);
+	Product(QString name, float price);
 
 	// Getters & Setters
-	string 	getName();
+	QString 	getName();
 	int 	getPrice();
-	void 	setName(string name);
+	void 	setName(QString name);
 	void 	setPrice(int price);
 };
 
@@ -23,9 +23,9 @@ class ProductList{
 	int 			_size;
 public:
 	ProductList();
-	void addProduct(string name, float price);
-	void deleteProduct(string name);
-	Product* getProductByName(string name);
+	void addProduct(QString name, float price);
+	void deleteProduct(QString name);
+	Product* getProductByName(QString name);
 
 	// Getters & Setters
 	vector<Product>* getProducts();
