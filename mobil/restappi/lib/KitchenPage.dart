@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restappi/main.dart';
 
 
 
@@ -18,7 +19,7 @@ class kitchenPageState extends State{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: Colors.amberAccent,
+      color: renkMutfakSari,
     );
   }
 }

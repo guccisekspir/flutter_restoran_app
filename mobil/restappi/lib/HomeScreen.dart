@@ -3,6 +3,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_render_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_dart/actor.dart';
+import 'package:restappi/main.dart';
 
 
 class HomeScreen extends StatelessWidget{
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget{
     // TODO: implement build
     return Scaffold(
       body: Container(
-        color: Color.fromARGB(255, 37, 42,57),
+        color: renkArka,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
@@ -20,14 +21,13 @@ class HomeScreen extends StatelessWidget{
               Padding(
                 padding: const EdgeInsets.fromLTRB(8.0, 32.0, 8.0, 0.0),
                 child: Container(
-
                   height: MediaQuery.of(context).size.height/2-50,
                   width: MediaQuery.of(context).size.width,
                   child: RaisedButton(
                     shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
 
 
-                    color: Colors.deepPurpleAccent,
+                    color: renkGarsonYesil,
                     child: Column(
                       children: <Widget>[
                         SizedBox(
@@ -57,14 +57,17 @@ class HomeScreen extends StatelessWidget{
                     shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
 
 
-                    color: Colors.deepOrangeAccent,
+                    color: renkMutfakSari,
                     child: Column(
                       children: <Widget>[
                         SizedBox(
                           height: 50,
                         ),
-                        Text("MUTFAK",style: TextStyle(fontFamily: 'Raleway',fontSize: 75,),textAlign: TextAlign.center,),
-                        FlareActor("assets/mutfakk.flr",sizeFromArtboard: true,animation: "Yumy",),
+                        Text("MUTFAK",style: TextStyle(fontFamily: 'Raleway',fontSize: 75,color: Colors.white),textAlign: TextAlign.center,),
+                        SizedBox(
+                          width: 270,
+                            height: 150,
+                            child: FlareActor("assets/mutfakk.flr",sizeFromArtboard: true,animation: "Yumy",fit: BoxFit.fill,)),
                       ],
                     ),
                     onPressed: ()=>{

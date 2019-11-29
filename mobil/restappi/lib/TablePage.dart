@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restappi/main.dart';
 
 class TablePages extends StatefulWidget{
   @override
@@ -18,7 +19,7 @@ class tablePageState extends State{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: Colors.deepPurpleAccent,
+      color: renkGarsonYesil,
     );
   }
 }
