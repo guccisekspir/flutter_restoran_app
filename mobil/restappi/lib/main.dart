@@ -4,6 +4,8 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare.dart';
 import 'package:restappi/HomeScreen.dart';
+import 'package:restappi/KitchenPage.dart';
+import 'package:restappi/TablePage.dart';
 import 'package:restappi/splashscreen.dart';
 void main() => runApp(MyApp());
 
@@ -16,7 +18,9 @@ class MyApp extends StatelessWidget {
       title: "RestAppi",
       initialRoute: '/',
       routes: {
-        '/homeScreen' : (context)=> HomeScreen()
+        '/homeScreen' : (context)=> HomeScreen(),
+        '/kitchenScreen': (context)=> KitchenPage(),
+        '/tableScreen':(context)=> TablePages(),
       },
       home: SplashScreen()
     );
@@ -33,6 +37,7 @@ class SplashScreen extends StatefulWidget{
 
 
 class SplashScreenState extends State{
+  var deneme =2;
 
   @override
   Widget build(BuildContext context) {

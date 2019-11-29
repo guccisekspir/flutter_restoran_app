@@ -17,6 +17,8 @@ class kitchenPageState extends State{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return null;
+    return Container(
+      color: Colors.amberAccent,
+    );
   }
 }

@@ -33,7 +33,9 @@ class HomeScreen extends StatelessWidget{
                         Icon(Icons.room_service,size: 100,),
                       ],
                     ),
-                    onPressed: ()=>{},
+                    onPressed: ()=>{
+                      Navigator.pushNamed(context, '/tableScreen')
+                      },
                   ),
                 ),
               ),
@@ -57,7 +59,9 @@ class HomeScreen extends StatelessWidget{
                         Icon(Icons.restaurant,size: 100,),
                       ],
                     ),
-                    onPressed: ()=>{},
+                    onPressed: ()=>{
+                      Navigator.pushNamed(context, '/kitchenScreen')
+                    },
                   ),
                 ),
               ),
@@ -66,4 +70,6 @@ class HomeScreen extends StatelessWidget{
       ),
     );
   }
+
+
 }
