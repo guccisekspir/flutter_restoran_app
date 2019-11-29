@@ -12,6 +12,7 @@ class TablePages extends StatefulWidget{
 
 }
 
+// ignore: camel_case_types
 class tablePageState extends State{
   @override
   Widget build(BuildContext context) {
