@@ -1,3 +1,6 @@
+import 'dart:ui' as prefix0;
+
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:restappi/main.dart';
 
@@ -19,7 +22,14 @@ class tablePageState extends State{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: renkGarsonYesil,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            renkGarsonYesil,
+            Color.fromARGB(255, 74, 0, 224)
+          ]
+        ),
+      ),
     );
   }
 }

@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]); //Status Bar Kapatılması
     return MaterialApp(
+
 
       debugShowCheckedModeBanner: false,
       title: "RestAppi",
@@ -47,9 +49,7 @@ class SplashScreen extends StatefulWidget{
 
 
 class SplashScreenState extends State{
-
-  var deneme =2;
-
+  
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

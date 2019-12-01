@@ -11,23 +11,45 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: Container(
-        color: renkArka,
+
+
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+
+              colors: [
+                Color.fromARGB(255, 33, 144, 176),
+                Color.fromARGB(255, 109, 213, 237)
+
+              ]
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
-
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 32.0, 8.0, 0.0),
-                child: Container(
-                  height: MediaQuery.of(context).size.height/2-50,
-                  width: MediaQuery.of(context).size.width,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-
-
-                    color: renkGarsonYesil,
+              GestureDetector( //Garson Buton
+                onTap: ()=>{
+                  Navigator.pushNamed(context, '/tableScreen')
+                },
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 30, 15, 0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40.0),
+                        color: renkGarsonYesil,
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            stops: [0.3, 0.9],
+                            colors: [
+                              renkGarsonYesil,
+                              Color.fromARGB(255, 74, 0, 224)
+                            ]
+                        )
+                    ),
+                    height: MediaQuery.of(context).size.height/2-50, //Cihaza göre ekran boyutu alma
+                    width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: <Widget>[
                         SizedBox(
@@ -41,23 +63,32 @@ class HomeScreen extends StatelessWidget{
 
                       ],
                     ),
-                    onPressed: ()=>{
-                      Navigator.pushNamed(context, '/tableScreen')
-                      },
+
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 20.0),
-                child: Container(
-
-                  height: MediaQuery.of(context).size.height/2-50,
-                  width: MediaQuery.of(context).size.width,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-
-
-                    color: renkMutfakSari,
+              GestureDetector( //Mutfak Buton
+                onTap: ()=>{
+                  Navigator.pushNamed(context, '/kitchenScreen')
+                },
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 30, 15, 30),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40.0),
+                        color: renkGarsonYesil,
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            stops: [0.4, 0.9],
+                            colors: [
+                              renkMutfakSari,
+                              Color.fromARGB(255, 107, 29, 29)
+                            ]
+                        )
+                    ),
+                    height: MediaQuery.of(context).size.height/2-50, //Cihaza göre ekran boyutu alma
+                    width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: <Widget>[
                         SizedBox(
@@ -65,20 +96,19 @@ class HomeScreen extends StatelessWidget{
                         ),
                         Text("MUTFAK",style: TextStyle(fontFamily: 'Raleway',fontSize: 75,color: Colors.white),textAlign: TextAlign.center,),
                         SizedBox(
-                          width: 270,
+                            width: 270,
                             height: 150,
                             child: FlareActor("assets/mutfakk.flr",sizeFromArtboard: true,animation: "Yumy",fit: BoxFit.fill,)),
                       ],
                     ),
-                    onPressed: ()=>{
-                      Navigator.pushNamed(context, '/kitchenScreen')
-                    },
+
                   ),
                 ),
               ),
             ],
-          )
-      ),
+          ),
+        )
+
     );
   }
 

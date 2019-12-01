@@ -19,7 +19,14 @@ class kitchenPageState extends State{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: renkMutfakSari,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            renkMutfakSari,
+            Color.fromARGB(255, 107, 29, 29)
+          ]
+        )
+      ),
     );
   }
 }
