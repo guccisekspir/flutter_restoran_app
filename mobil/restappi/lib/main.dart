@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]); //Status Bar Kapatılması
+    SystemChrome.setEnabledSystemUIOverlays([]); //Status Bar Kapatılması ve Tam ekrana geçilmesi
     return MaterialApp(
 
 
