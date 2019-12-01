@@ -1,0 +1,23 @@
+[
+  {
+    "masaid": 1,
+    "masadurumu": true,
+    "siparis": [
+      {
+        "urunadi": "lahmacun",
+        "adedi": 3,
+        "not": ""
+      },
+      {
+        "urunadi": "Dürüm",
+        "adedi": 2,
+        "not": "Zero"
+      },
+      {
+        "urunadi": "Kola",
+        "adedi": 4,
+        "not": " 1 tanesi Zero"
+      }
+    ]
+  }
+]

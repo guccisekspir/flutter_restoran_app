@@ -68,7 +68,7 @@ class SplashScreenState extends State{
     return Timer(_duration,navigatorPush);
   }
   navigatorPush(){
-    Navigator.pushNamedAndRemoveUntil(context, '/homeScreen', (Route<dynamic> route) => false);
+    Navigator.pushNamedAndRemoveUntil(context, '/homeScreen', (Route<dynamic> route) => false); //Splash Screene dönülmemesi için siliyoruz
   }
 
 }
