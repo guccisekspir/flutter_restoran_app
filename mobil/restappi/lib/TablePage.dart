@@ -59,7 +59,7 @@ class tablePageState extends State {
                 return Stack(
                   children: <Widget>[
                     GestureDetector(
-                      onTap:() {siparisiGoster(context,cekilenMasalar[index]);},
+                      onTap:() {siparisiGoster(context,cekilenMasalar[index],cekilenMasalar[index].siparis.length-1);},
 
                       child: Container(
                         padding: EdgeInsets.all(10.0),
@@ -138,12 +138,13 @@ class tablePageState extends State {
     return renkler;
   }
 
-  siparisiGoster(BuildContext ctx, Masa cekilenMasalar) {
+  siparisiGoster(BuildContext ctx, Masa cekilenMasalar,int index ){
+    debugPrint(cekilenMasalar.siparis[index].urunadi);
     showDialog(context: ctx,
       builder: (ctx){
       return AlertDialog(
-        title: Text("deneme"),
-        content: Text("Deneme Content"),
+        title: Text("Siparişler",style:TextStyle(fontSize: 40,color: Colors.white),),
+        content: Text(siparisilistele(cekilenMasalar,index),style: TextStyle(fontSize: 30,color: Colors.black),),
         actions: <Widget>[
           FlatButton(
             onPressed: (){
@@ -160,5 +161,18 @@ class tablePageState extends State {
     );
   }
 
+  String siparisilistele(Masa cekilenMasalar, int index) {
+    String siparis = "";
+    for(int i=0;i<index+1;i++){
 
+      siparis+=cekilenMasalar.siparis[i].adedi.toString()+" "+cekilenMasalar.siparis[i].urunadi.toString()+'\n';
+
+
+    }
+    return siparis;
+
+
+  }
 }
+
+

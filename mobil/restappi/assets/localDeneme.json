@@ -27,12 +27,12 @@
     "tutar": 72,
     "siparis": [
       {
-        "urunadi": "2lahmacun",
+        "urunadi": "pide",
         "adedi": 3,
         "not": "2"
       },
       {
-        "urunadi": "2Dürüm",
+        "urunadi": "adana",
         "adedi": 2,
         "not": "Zero"
       },
@@ -49,17 +49,17 @@
     "tutar": 142,
     "siparis": [
       {
-        "urunadi": "lahmacun",
+        "urunadi": "çorba",
         "adedi": 3,
         "not": ""
       },
       {
-        "urunadi": "Dürüm",
+        "urunadi": "iskender",
         "adedi": 2,
         "not": "Zero"
       },
       {
-        "urunadi": "Kola",
+        "urunadi": "su",
         "adedi": 4,
         "not": " 1 tanesi Zero"
       }
@@ -93,12 +93,12 @@
     "tutar": 422,
     "siparis": [
       {
-        "urunadi": "2lahmacun",
+        "urunadi": "fark",
         "adedi": 3,
         "not": "2"
       },
       {
-        "urunadi": "2Dürüm",
+        "urunadi": "var",
         "adedi": 2,
         "not": "Zero"
       },
