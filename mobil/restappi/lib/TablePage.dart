@@ -5,6 +5,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:restappi/main.dart';
 import 'package:restappi/models/Masa.dart';
+import 'package:restappi/models/Siparis.dart';
 
 TextStyle masaText = TextStyle(
   color: Colors.white,
@@ -57,27 +58,31 @@ class tablePageState extends State {
               itemBuilder: (context, index) {
                 return Stack(
                   children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.all(10.0),
-                      margin: EdgeInsets.all(10.0),
-                      height: 300,
-                      width: 300,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.bottomLeft,
-                              end: Alignment.topRight,
-                              colors: renklerigetir(cekilenMasalar[index])),
-                          borderRadius: BorderRadius.circular(40)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "Masa" + cekilenMasalar[index].masaid.toString(),
-                            style: masaText,
-                          ),
-                          Text(cekilenMasalar[index].tutar.toString() + "TL",
-                              style: masaText),
-                        ],
+                    GestureDetector(
+                      onTap:() {siparisiGoster(context,cekilenMasalar[index]);},
+
+                      child: Container(
+                        padding: EdgeInsets.all(10.0),
+                        margin: EdgeInsets.all(10.0),
+                        height: 300,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                colors: renklerigetir(cekilenMasalar[index])),
+                            borderRadius: BorderRadius.circular(40)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Masa" + cekilenMasalar[index].masaid.toString(),
+                              style: masaText,
+                            ),
+                            Text(cekilenMasalar[index].tutar.toString() + "TL",
+                                style: masaText),
+                          ],
+                        ),
                       ),
                     ),
                     Align(
@@ -113,7 +118,7 @@ class tablePageState extends State {
   Future<List<Masa>> veriHazirla() async {
     var gelenJson = await DefaultAssetBundle.of(context)
         .loadString("assets/localDeneme.json");
-    debugPrint(gelenJson);
+
 
     List<Masa> masalar = (json.decode(gelenJson) as List)
         .map((mapYapisi) => Masa.fromJson(mapYapisi))
@@ -132,4 +137,28 @@ class tablePageState extends State {
     }
     return renkler;
   }
+
+  siparisiGoster(BuildContext ctx, Masa cekilenMasalar) {
+    showDialog(context: ctx,
+      builder: (ctx){
+      return AlertDialog(
+        title: Text("deneme"),
+        content: Text("Deneme Content"),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: (){
+              Navigator.of(ctx).pop();
+            }
+          )
+        ],
+        backgroundColor: Colors.deepPurple,
+      );
+      }
+
+
+
+    );
+  }
+
+
 }
