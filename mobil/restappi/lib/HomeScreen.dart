@@ -12,10 +12,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 33, 144, 176),
-          Color.fromARGB(255, 109, 213, 237)
-        ]),
+        gradient: LinearGradient(
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+            colors: [
+              Color.fromARGB(255, 254, 172, 94),
+              Color.fromARGB(255, 199, 121, 208),
+              Color.fromARGB(255, 75, 192, 200),
+            ]),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -31,15 +35,12 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(40.0),
                     color: renkGarsonYesil,
                     gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        stops: [
-                          0.3,
-                          0.9
-                        ],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
                         colors: [
-                          renkGarsonYesil,
-                          Color.fromARGB(255, 74, 0, 224)
+                          Color.fromARGB(255, 58, 28, 113),
+                          Color.fromARGB(255, 205, 109, 119),
+                          Color.fromARGB(255, 255, 175, 123)
                         ])),
                 height: MediaQuery.of(context).size.height / 2 -
                     50, //Cihaza göre ekran boyutu alma
@@ -79,15 +80,11 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(40.0),
                     color: renkGarsonYesil,
                     gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        stops: [
-                          0.4,
-                          0.9
-                        ],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
                         colors: [
-                          renkMutfakSari,
-                          Color.fromARGB(255, 107, 29, 29)
+                          Color.fromARGB(255, 69, 104, 220),
+                          Color.fromARGB(255, 176, 106, 179)
                         ])),
                 height: MediaQuery.of(context).size.height / 2 -
                     50, //Cihaza göre ekran boyutu alma
