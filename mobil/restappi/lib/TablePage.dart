@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:restappi/main.dart';
 import 'package:restappi/models/Masa.dart';
 import 'package:restappi/models/Siparis.dart';
+import 'package:oktoast/oktoast.dart';
 
 TextStyle masaText = TextStyle(
   color: Colors.white,
@@ -89,8 +90,8 @@ class tablePageState extends State {
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: GestureDetector(
-                        onTap: (){
-                          siparisEkle(context,cekilenMasalar,index);
+                        onTap: () {
+                          siparisEkle(context, cekilenMasalar, index);
                         },
                         child: Stack(
                           children: <Widget>[
@@ -170,7 +171,7 @@ class tablePageState extends State {
 
   String siparisilistele(Masa cekilenMasalar, int index) {
     String siparis = "";
-    if(cekilenMasalar.masadurumu){
+    if (cekilenMasalar.masadurumu) {
       for (int i = 0; i < index + 1; i++) {
         siparis += cekilenMasalar.siparis[i].adedi.toString() +
             " " +
@@ -190,7 +191,50 @@ class tablePageState extends State {
               "Sipariş ekle",
               style: TextStyle(fontSize: 40, color: Colors.white),
             ),
-            content: Text("aa"),
+            content: Container(
+              height: 400,
+              width: 400,
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    leading: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child:
+                          Icon(Icons.add_circle, color: Colors.blue, size: 60),
+                    ),
+                    title: Text("Adana Dürüm"),
+                    subtitle: Text("Soğan,Maydanoz"),
+                  ),
+                  ListTile(
+                    leading: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Icon(
+                        Icons.add_circle,
+                        color: Colors.blue,
+                        size: 60,
+                      ),
+                    ),
+                    title: Text("Urfa Dürüm"),
+                    subtitle: Text("Soğan,Maydanoz"),
+                  ),
+                  ListTile(
+                    leading: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child:
+                          Icon(Icons.add_circle, color: Colors.blue, size: 60),
+                    ),
+                    title: Text("Tavuk Dürüm"),
+                    subtitle: Text("Soğan,Maydanoz"),
+                  ),
+                ],
+              ),
+            ),
             actions: <Widget>[
               FlatButton(onPressed: () {
                 Navigator.of(ctx).pop();
@@ -199,7 +243,5 @@ class tablePageState extends State {
             backgroundColor: Color.fromARGB(255, 68, 85, 99),
           );
         });
-
-
   }
 }
