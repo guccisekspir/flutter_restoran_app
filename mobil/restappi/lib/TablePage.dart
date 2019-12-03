@@ -1,13 +1,9 @@
 import 'dart:convert';
 import 'dart:async';
-
-import 'package:flare_flutter/flare_actor.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:restappi/main.dart';
 import 'package:restappi/models/Masa.dart';
-import 'package:restappi/models/Siparis.dart';
-import 'package:oktoast/oktoast.dart';
-
+import 'package:restappi/utils/strings.dart';
 TextStyle masaText = TextStyle(
   color: Colors.white,
   fontSize: 15,
@@ -194,45 +190,22 @@ class tablePageState extends State {
             content: Container(
               height: 400,
               width: 400,
-              child: ListView(
-                children: <Widget>[
-                  ListTile(
+              child: ListView.builder(
+                itemCount: Strings.Yemekler.length,
+                itemBuilder: (BuildContext context,int index){
+                  return ListTile(
                     leading: GestureDetector(
                       onTap: () {
                         Navigator.of(context).pop();
                       },
                       child:
-                          Icon(Icons.add_circle, color: Colors.blue, size: 60),
+                      Icon(Icons.add_circle, color: Colors.blue, size: 60),
                     ),
-                    title: Text("Adana Dürüm"),
-                    subtitle: Text("Soğan,Maydanoz"),
-                  ),
-                  ListTile(
-                    leading: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Icon(
-                        Icons.add_circle,
-                        color: Colors.blue,
-                        size: 60,
-                      ),
-                    ),
-                    title: Text("Urfa Dürüm"),
-                    subtitle: Text("Soğan,Maydanoz"),
-                  ),
-                  ListTile(
-                    leading: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child:
-                          Icon(Icons.add_circle, color: Colors.blue, size: 60),
-                    ),
-                    title: Text("Tavuk Dürüm"),
-                    subtitle: Text("Soğan,Maydanoz"),
-                  ),
-                ],
+                    title: Text(Strings.Yemekler[index]),
+                    subtitle: Text(Strings.Icindekiler[index]),
+                  );
+                },
+
               ),
             ),
             actions: <Widget>[
