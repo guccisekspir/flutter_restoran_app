@@ -16,9 +16,9 @@ class HomeScreen extends StatelessWidget {
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
             colors: [
-              Color.fromARGB(255, 254, 172, 94),
-              Color.fromARGB(255, 199, 121, 208),
-              Color.fromARGB(255, 75, 192, 200),
+              Color.fromARGB(255, 72, 85, 99),
+              Color.fromARGB(255, 41, 50, 60),
+              //Color.fromARGB(255, 44, 83, 100),
             ]),
       ),
       child: Column(

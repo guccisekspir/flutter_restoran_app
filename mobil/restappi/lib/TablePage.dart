@@ -42,9 +42,8 @@ class tablePageState extends State {
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
             colors: [
-              Color.fromARGB(255, 254, 172, 94),
-              Color.fromARGB(255, 199, 121, 208),
-              Color.fromARGB(255, 75, 192, 200),
+              Color.fromARGB(255, 68, 85, 99),
+              Color.fromARGB(255, 41, 50, 60),
             ]),
       ),
       child: FutureBuilder(
@@ -144,7 +143,7 @@ class tablePageState extends State {
       builder: (ctx){
       return AlertDialog(
         title: Text("Siparişler",style:TextStyle(fontSize: 40,color: Colors.white),),
-        content: Text(siparisilistele(cekilenMasalar,index),style: TextStyle(fontSize: 30,color: Colors.black),),
+        content: Text(siparisilistele(cekilenMasalar,index),style: TextStyle(fontSize: 30,color: Colors.black,fontWeight:FontWeight.bold),),
         actions: <Widget>[
           FlatButton(
             onPressed: (){
@@ -152,7 +151,7 @@ class tablePageState extends State {
             }
           )
         ],
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Color.fromARGB(255, 68, 85, 99),
       );
       }
 
