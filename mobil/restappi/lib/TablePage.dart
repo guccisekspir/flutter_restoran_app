@@ -14,13 +14,11 @@ TextStyle masaText = TextStyle(
 );
 
 class TablePages extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return tablePageState();
   }
-
 }
 
 // ignore: camel_case_types
@@ -29,6 +27,7 @@ class tablePageState extends State {
   List<Siparis> siparisler;
 
   var adet = 0;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -151,7 +150,7 @@ class tablePageState extends State {
         context: ctx,
         builder: (ctx) {
           return StatefulBuilder(
-            builder: (context,setState){
+            builder: (context, setState) {
               return AlertDialog(
                 title: Text(
                   "Siparişler",
@@ -194,7 +193,7 @@ class tablePageState extends State {
         context: context,
         builder: (ctx) {
           return StatefulBuilder(
-            builder: (context,setState){
+            builder: (context, setState) {
               return AlertDialog(
                 title: Text(
                   "Sipariş ekle",
@@ -211,17 +210,16 @@ class tablePageState extends State {
                           onTap: () {
                             setState(() {
                               siparisler[index].adedi++;
-
                             });
                           },
-                          child:
-                          Icon(Icons.add_circle, color: Colors.blue, size: 60),
+                          child: Icon(Icons.add_circle,
+                              color: Colors.blue, size: 60),
                         ),
                         title: Text(Strings.Yemekler[index]),
                         subtitle: Text(Strings.Icindekiler[index]),
                         dense: false,
                         trailing:
-                        Text("Adet " + siparisler[index].adedi.toString()),
+                            Text("Adet " + siparisler[index].adedi.toString()),
                       );
                     },
                   ),
@@ -256,6 +254,4 @@ class tablePageState extends State {
       siparisler.add(ahmet);
     }
   }
-
-
 }
