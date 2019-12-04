@@ -4,6 +4,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:restappi/models/Masa.dart';
 import 'package:restappi/utils/strings.dart';
+
+import 'models/Siparis.dart';
+
 TextStyle masaText = TextStyle(
   color: Colors.white,
   fontSize: 15,
@@ -11,23 +14,28 @@ TextStyle masaText = TextStyle(
 );
 
 class TablePages extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return tablePageState();
   }
+
 }
 
 // ignore: camel_case_types
 class tablePageState extends State {
   List<Masa> cekilenMasalar;
+  List<Siparis> siparisler;
 
+  var adet = 0;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     cekilenMasalar = [];
-    debugPrint("İnit state çalıştı");
+    siparisler = [];
+    siparisleriDoldur();
   }
 
   @override
@@ -139,28 +147,31 @@ class tablePageState extends State {
   }
 
   siparisiGoster(BuildContext ctx, Masa cekilenMasalar, int index) {
-    debugPrint(cekilenMasalar.siparis[index].urunadi);
     showDialog(
         context: ctx,
         builder: (ctx) {
-          return AlertDialog(
-            title: Text(
-              "Siparişler",
-              style: TextStyle(fontSize: 40, color: Colors.white),
-            ),
-            content: Text(
-              siparisilistele(cekilenMasalar, index),
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
-            ),
-            actions: <Widget>[
-              FlatButton(onPressed: () {
-                Navigator.of(ctx).pop();
-              })
-            ],
-            backgroundColor: Color.fromARGB(255, 68, 85, 99),
+          return StatefulBuilder(
+            builder: (context,setState){
+              return AlertDialog(
+                title: Text(
+                  "Siparişler",
+                  style: TextStyle(fontSize: 40, color: Colors.white),
+                ),
+                content: Text(
+                  siparisilistele(cekilenMasalar, index),
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                actions: <Widget>[
+                  FlatButton(onPressed: () {
+                    Navigator.of(ctx).pop();
+                  })
+                ],
+                backgroundColor: Color.fromARGB(255, 68, 85, 99),
+              );
+            },
           );
         });
   }
@@ -182,39 +193,69 @@ class tablePageState extends State {
     showDialog(
         context: context,
         builder: (ctx) {
-          return AlertDialog(
-            title: Text(
-              "Sipariş ekle",
-              style: TextStyle(fontSize: 40, color: Colors.white),
-            ),
-            content: Container(
-              height: 400,
-              width: 400,
-              child: ListView.builder(
-                itemCount: Strings.Yemekler.length,
-                itemBuilder: (BuildContext context,int index){
-                  return ListTile(
-                    leading: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child:
-                      Icon(Icons.add_circle, color: Colors.blue, size: 60),
-                    ),
-                    title: Text(Strings.Yemekler[index]),
-                    subtitle: Text(Strings.Icindekiler[index]),
-                  );
-                },
+          return StatefulBuilder(
+            builder: (context,setState){
+              return AlertDialog(
+                title: Text(
+                  "Sipariş ekle",
+                  style: TextStyle(fontSize: 40, color: Colors.white),
+                ),
+                content: Container(
+                  height: 400,
+                  width: 400,
+                  child: ListView.builder(
+                    itemCount: Strings.Yemekler.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        leading: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              siparisler[index].adedi++;
 
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(onPressed: () {
-                Navigator.of(ctx).pop();
-              })
-            ],
-            backgroundColor: Color.fromARGB(255, 68, 85, 99),
+                            });
+                          },
+                          child:
+                          Icon(Icons.add_circle, color: Colors.blue, size: 60),
+                        ),
+                        title: Text(Strings.Yemekler[index]),
+                        subtitle: Text(Strings.Icindekiler[index]),
+                        dense: false,
+                        trailing:
+                        Text("Adet " + siparisler[index].adedi.toString()),
+                      );
+                    },
+                  ),
+                ),
+                contentPadding: EdgeInsets.all(0.0),
+                elevation: 10.0,
+                actions: <Widget>[
+                  RaisedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    padding: EdgeInsets.all(0.0),
+                    child: Text(
+                      "Siparişi al",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
+                backgroundColor: Color.fromARGB(255, 68, 85, 99),
+              );
+            },
           );
         });
   }
+
+  void siparisleriDoldur() {
+    for (int i = 0; i < Strings.Yemekler.length; i++) {
+      var urunadi = Strings.Yemekler[i];
+      var adedi = 0;
+      var not = Strings.Icindekiler[i];
+      var ahmet = Siparis(urunadi: urunadi, adedi: adedi, not: not);
+      siparisler.add(ahmet);
+    }
+  }
+
+
 }
