@@ -8,40 +8,28 @@ use Illuminate\Validation\ValidationException;
 
 class RestaurantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return response()->json(Restaurant::all());
+        $restaurants = Restaurant::all();
+
+        return response()->json($restaurants);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show($id)
     {
-        //
+        $restaurant = Restaurant::findOrFail($id);
+
+        return response()->json($restaurant);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         try {
             $this->validate($request, [
-                'name' => 'required'
+                'name' => 'required|max:40'
             ]);
         } catch (ValidationException $e) {
-            return response()->json($e->getMessage());
+            return response()->json(['state' => 'unsuccessful']);
         }
 
         $restaurant = Restaurant::create([
@@ -51,48 +39,22 @@ class RestaurantController extends Controller
         return response()->json($restaurant);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit(Request $request, $id)
     {
-        //
-    }
+        try {
+            $this->validate($request, [
+                'name' => 'required|max:40'
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json(['state' => 'unsuccessful']);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $restaurant = Restaurant::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $restaurant->update([
+            'name' => $request->name
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return response()->json($restaurant);
     }
 }
