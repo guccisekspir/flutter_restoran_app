@@ -18,12 +18,19 @@ Route::get('/', function() {
 });
 
 // restaurant routes
-Route::get('/restaurant', 'RestaurantController@index');
-Route::post('/restaurant', 'RestaurantController@store');
+Route::get('/restaurants', 'RestaurantController@index');
+Route::post('/restaurants', 'RestaurantController@store');
 Route::get('/restaurant/{id}', 'RestaurantController@show');
 Route::post('/restaurant/{id}', 'RestaurantController@edit');
 
 // table routes
-Route::get('/restaurant/{id}/table', 'TableController@index');
-Route::post('/restaurant/{id}/table', 'TableController@store');
+Route::get('/restaurant/{id}/tables', 'TableController@index');
+Route::post('/restaurant/{id}/tables', 'TableController@store');
+Route::get('/restaurant/{id}/table/{tableId}', 'TableController@show');
 Route::post('/restaurant/{id}/table/{tableId}', 'TableController@edit');
+
+// product routes
+Route::get('/restaurant/{id}/products', 'ProductController@index');
+Route::post('/restaurant/{id}/products', 'ProductController@store');
+Route::get('/restaurant/{id}/product/{productId}', 'ProductController@show');
+Route::post('/restaurant/{id}/product/{productId}', 'ProductController@edit');

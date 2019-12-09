@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
-use App\Table;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class TableController extends Controller
+class ProductController extends Controller
 {
-    // TODO: 404ler response döndürecek
-
     public function index($id)
     {
         $restaurant = Restaurant::findOrFail($id);
-        $tables = $restaurant->table()->get();
+        $products = $restaurant->product()->get();
 
-        return response()->json($tables);
+        return response()->json($products);
     }
 
     public function store(Request $request, $id)
@@ -24,6 +21,7 @@ class TableController extends Controller
         try {
             $this->validate($request, [
                 'name' => 'required|max:40',
+                'price' => 'numeric'
             ]);
         } catch (ValidationException $e) {
             return response()->json(['state' => 'unsuccessful']);
@@ -31,38 +29,42 @@ class TableController extends Controller
 
         $restaurant = Restaurant::findOrFail($id);
 
-        $table = $restaurant->table()->create([
-            'name' => $request->name
+        $product = $restaurant->product()->create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'thumbnail' => $request->thumbnail
         ]);
 
-        return response()->json($table);
+        return response()->json($product);
     }
 
-    public function show($id, $tableId)
+    public function show($id, $productId)
     {
         $restaurant = Restaurant::findOrFail($id);
-        $table = $restaurant->table()->where('id', $tableId)->first();
+        $product = $restaurant->product()->where('id', $productId)->first();
 
-        return response()->json($table);
+        return response()->json($product);
     }
 
-    public function edit(Request $request, $id, $tableId)
+    public function edit(Request $request, $id, $productId)
     {
         try {
             $this->validate($request, [
                 'name' => 'required|max:40',
+                'price' => 'numeric'
             ]);
         } catch (ValidationException $e) {
             return response()->json(['state' => 'unsuccessful']);
         }
 
         $restaurant = Restaurant::findOrFail($id);
-        $table = $restaurant->table()->where('id', $tableId);
+        $product = $restaurant->product()->where('id', $productId);
 
-        $table->update([
-            'name' => $request->name
+        $product->update([
+            'name' => $request->name,
+            'price' => $request->price
         ]);
 
-        return response()->json($table->first());
+        return response()->json($product->first());
     }
 }
