@@ -17,7 +17,7 @@ class CreateTablesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->boolean('is_full')->default(false);
-            $table->double('amount')->nullable();
+            $table->double('amount')->default('0');
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
             $table->timestamps();

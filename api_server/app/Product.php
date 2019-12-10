@@ -11,4 +11,9 @@ class Product extends Model
         'price',
         'thumbnail'
     ];
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
 }
