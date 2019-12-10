@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Restaurant;
 use App\Table;
 use Illuminate\Http\Request;
@@ -76,9 +77,18 @@ class TableController extends Controller
             'amount' => 0
         ]);
 
-        $orderIds = $table->order()->pluck(['id']);
+        // Çözüm v2
+        /*
+         * $collection = ModelName::where('condition', 'value')->get(['id']);
+         * ModelName::destroy($collection->toArray());
+         *
+         * Daha kolay bir çözüm olabilir.
+         */
 
-        DB::table('orders')->whereIn('id', $orderIds)->delete();
+        $orderIds = $table->order()->get(['id']);
+        Order::destroy($orderIds->toArray());
+
+        // DB::table('orders')->whereIn('id', $orderIds)->delete();
 
         return response()->json($table);
     }
