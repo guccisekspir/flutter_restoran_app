@@ -2,7 +2,7 @@
   {
     "masaid": 1,
     "masadurumu": true,
-    "tutar": 32,
+    "tutar": 37,
     "siparis": [
       {
         "urunadi": "lahmacun",
@@ -27,12 +27,12 @@
     "tutar": 72,
     "siparis": [
       {
-        "urunadi": "2lahmacun",
+        "urunadi": "pide",
         "adedi": 3,
         "not": "2"
       },
       {
-        "urunadi": "2Dürüm",
+        "urunadi": "adana",
         "adedi": 2,
         "not": "Zero"
       },
@@ -49,26 +49,26 @@
     "tutar": 142,
     "siparis": [
       {
-        "urunadi": "lahmacun",
+        "urunadi": "çorba",
         "adedi": 3,
         "not": ""
       },
       {
-        "urunadi": "Dürüm",
+        "urunadi": "iskender",
         "adedi": 2,
         "not": "Zero"
       },
       {
-        "urunadi": "Kola",
+        "urunadi": "su",
         "adedi": 4,
         "not": " 1 tanesi Zero"
       }
     ]
   },
   {
-    "masaid": 1,
+    "masaid": 4,
     "masadurumu": true,
-    "tutar": 32,
+    "tutar": 122,
     "siparis": [
       {
         "urunadi": "lahmacun",
@@ -88,7 +88,95 @@
     ]
   },
   {
-    "masaid": 2,
+    "masaid": 5,
+    "masadurumu": true,
+    "tutar": 422,
+    "siparis": [
+      {
+        "urunadi": "fark",
+        "adedi": 3,
+        "not": "2"
+      },
+      {
+        "urunadi": "var",
+        "adedi": 2,
+        "not": "Zero"
+      },
+      {
+        "urunadi": "Kola",
+        "adedi": 4,
+        "not": " 1 tanesi Zero"
+      }
+    ]
+  },
+  {
+    "masaid": 6,
+    "masadurumu": true,
+    "tutar": 82,
+    "siparis": [
+      {
+        "urunadi": "lahmacun",
+        "adedi": 3,
+        "not": ""
+      },
+      {
+        "urunadi": "Dürüm",
+        "adedi": 2,
+        "not": "Zero"
+      },
+      {
+        "urunadi": "Kola",
+        "adedi": 4,
+        "not": " 1 tanesi Zero"
+      }
+    ]
+  },
+  {
+    "masaid": 7,
+    "masadurumu": false,
+    "tutar": 71,
+    "siparis": [
+      {
+        "urunadi": "2lahmacun",
+        "adedi": 3,
+        "not": "2"
+      },
+      {
+        "urunadi": "2Dürüm",
+        "adedi": 2,
+        "not": "Zero"
+      },
+      {
+        "urunadi": "Kola",
+        "adedi": 4,
+        "not": " 1 tanesi Zero"
+      }
+    ]
+  },
+  {
+    "masaid": 8,
+    "masadurumu": false,
+    "tutar": 322,
+    "siparis": [
+      {
+        "urunadi": "lahmacun",
+        "adedi": 3,
+        "not": ""
+      },
+      {
+        "urunadi": "Dürüm",
+        "adedi": 2,
+        "not": "Zero"
+      },
+      {
+        "urunadi": "Kola",
+        "adedi": 4,
+        "not": " 1 tanesi Zero"
+      }
+    ]
+  },
+  {
+    "masaid": 9,
     "masadurumu": false,
     "tutar": 72,
     "siparis": [
@@ -110,7 +198,7 @@
     ]
   },
   {
-    "masaid": 1,
+    "masaid": 10,
     "masadurumu": true,
     "tutar": 32,
     "siparis": [
@@ -132,7 +220,7 @@
     ]
   },
   {
-    "masaid": 2,
+    "masaid": 11,
     "masadurumu": false,
     "tutar": 72,
     "siparis": [
@@ -154,7 +242,7 @@
     ]
   },
   {
-    "masaid": 1,
+    "masaid": 12,
     "masadurumu": true,
     "tutar": 32,
     "siparis": [
@@ -176,95 +264,7 @@
     ]
   },
   {
-    "masaid": 2,
-    "masadurumu": false,
-    "tutar": 72,
-    "siparis": [
-      {
-        "urunadi": "2lahmacun",
-        "adedi": 3,
-        "not": "2"
-      },
-      {
-        "urunadi": "2Dürüm",
-        "adedi": 2,
-        "not": "Zero"
-      },
-      {
-        "urunadi": "Kola",
-        "adedi": 4,
-        "not": " 1 tanesi Zero"
-      }
-    ]
-  },
-  {
-    "masaid": 1,
-    "masadurumu": true,
-    "tutar": 32,
-    "siparis": [
-      {
-        "urunadi": "lahmacun",
-        "adedi": 3,
-        "not": ""
-      },
-      {
-        "urunadi": "Dürüm",
-        "adedi": 2,
-        "not": "Zero"
-      },
-      {
-        "urunadi": "Kola",
-        "adedi": 4,
-        "not": " 1 tanesi Zero"
-      }
-    ]
-  },
-  {
-    "masaid": 2,
-    "masadurumu": false,
-    "tutar": 72,
-    "siparis": [
-      {
-        "urunadi": "2lahmacun",
-        "adedi": 3,
-        "not": "2"
-      },
-      {
-        "urunadi": "2Dürüm",
-        "adedi": 2,
-        "not": "Zero"
-      },
-      {
-        "urunadi": "Kola",
-        "adedi": 4,
-        "not": " 1 tanesi Zero"
-      }
-    ]
-  },
-  {
-    "masaid": 1,
-    "masadurumu": true,
-    "tutar": 32,
-    "siparis": [
-      {
-        "urunadi": "lahmacun",
-        "adedi": 3,
-        "not": ""
-      },
-      {
-        "urunadi": "Dürüm",
-        "adedi": 2,
-        "not": "Zero"
-      },
-      {
-        "urunadi": "Kola",
-        "adedi": 4,
-        "not": " 1 tanesi Zero"
-      }
-    ]
-  },
-  {
-    "masaid": 2,
+    "masaid": 13,
     "masadurumu": false,
     "tutar": 72,
     "siparis": [

@@ -12,7 +12,3 @@ use Illuminate\Foundation\Inspiring;
 | simple approach to interacting with each command's IO methods.
 |
 */
-
-Artisan::command('netapi', function () {
-    $this->comment("netapi is written by dogukan.dev");
-})->describe('Netapi ile alakali bi seyler.');
