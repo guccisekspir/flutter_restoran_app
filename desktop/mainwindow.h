@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include <QTableWidgetItem>
 #include <QString>
+#include <QDebug>
+
 #include "restaurant.h"
 #include "settingsdialog.h"
 
@@ -19,11 +22,28 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 private slots:
+    void updateWidgets();
+    void updateTableWidget(QString tableName);
+    void updateLabelTotal();
+
     void on_actionRestaurant_Settings_triggered();
+
+    void on_listWidget_tables_itemClicked(QListWidgetItem *item);
+
+    void on_listWidget_menu_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_pushButton_addOrder_clicked();
+
+    void on_tableWidget_tables_cellClicked(int row, int column);
+
+    void on_pushButton_pay_clicked();
 
 private:
     Restaurant* restaurant;
     SettingsDialog settingsDialog;
     Ui::MainWindow *ui;
+
+    Table* activeTable;
+
 };
 #endif // MAINWINDOW_H
