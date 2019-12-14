@@ -26,12 +26,6 @@ class OrderController extends Controller
         return response()->json($order);
     }
 
-    public function calculatePrice($productId, $amount)
-    {
-        $price = Product::where('id', $productId)->first()->price;
-        return $amount * $price;
-    }
-
     public function createOrder($id, Request $request)
     {
         try {
@@ -47,17 +41,15 @@ class OrderController extends Controller
         $restaurant = Restaurant::findOrFail($id);
         $table = $restaurant->table()->findOrFail($request->table_id);
 
-        $tempAmount = $table->amount;
-
-        $table->update([
-            'is_full' => true,
-            'amount' => $tempAmount + $this->calculatePrice($request->product_id, $request->amount)
-        ]);
-
         $order = $restaurant->order()->create([
             'product_id' => $request->product_id,
             'table_id' => $request->table_id,
             'amount' => $request->amount
+        ]);
+
+        $table->update([
+            'is_full' => true,
+            'amount' => $table->getTotalPrice()
         ]);
 
         return response()->json($order);
@@ -87,9 +79,13 @@ class OrderController extends Controller
                 'table_id' => $order->table_id,
                 'amount' => $order->amount
             ]);
+
+            $restaurant->table()->update([
+
+            ]);
         }
 
-        // TODO: Update table values, amount etc...
+
 
         return response()->json(['state' => 'orders taken']);
     }
