@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Validation\Validator;
 
 class OrderController extends Controller
 {
@@ -30,9 +30,9 @@ class OrderController extends Controller
     {
         try {
             $this->validate($request, [
-                'product_id' => 'exists:products|numeric',
-                'table_id' => 'exists:tables|numeric',
-                'amount' => 'numeric'
+                'product_id' => 'required|exists:products,id',
+                'table_id' => 'required|exists:tables,id',
+                'amount' => 'required|numeric'
             ]);
         } catch (ValidationException $e) {
             return response()->json(['state' => 'unsuccessful']);
@@ -59,16 +59,15 @@ class OrderController extends Controller
     {
         $restaurant = Restaurant::findOrFail($id);
 
-        $jsonRequest = json_decode($request->json, true);
+        $jsonRequest = json_decode($request->json);
         $rules = [
-            'product_id' => 'exists:products|numeric',
-            'table_id' => 'exists:tables|numeric',
-            'amount' => 'numeric'
+            'product_id' => 'required|exists:products,id',
+            'table_id' => 'required|exists:tables,id',
+            'amount' => 'required|numeric'
         ];
 
-        foreach ($jsonRequest as $order)
-        {
-            $validator = Validator::make($order, $rules);
+        foreach ($jsonRequest as $order) {
+            $validator = Validator::make((array) $order, $rules);
             if (!$validator->passes()) {
                 return response()->json(['state' => 'unsuccessful']);
             }
@@ -80,7 +79,8 @@ class OrderController extends Controller
             ]);
 
             $restaurant->table()->where('id', $order->table_id)->update([
-                'amount' => $restaurant->table()->where('id', $table_id)->getTotalPrice()
+                'is_full' => true,
+                'amount' => $restaurant->table()->where('id', $order->table_id)->get()->first()->getTotalPrice()
             ]);
         }
 

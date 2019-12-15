@@ -53,7 +53,19 @@ API tokeni alabilmek için sistem yöneticisi ile iletişime geçilmesi gerekmek
     * Send post request with table_id, product_id, amount values. That values is getting checked by validator, so send valid values.
 * `(POST) api/restaurant/{id}/orders/json` (create order with JSON request)
     * Send nested orders with JSON. You must send table_id, product_id, amount in infinite values. 
-
+    *  json format: 
+        `[
+              {
+                  "table_id": 1,
+                  "product_id": 1,
+                  "amount": 5
+              },
+              {
+                  "table_id": 5,
+                  "product_id": 3,
+                  "amount": 3
+              }
+          ]`
 
 ## TODO List
 * Kapatılan masaların ücretlerini günlük rapor verecek bir sistem haline getirmek.

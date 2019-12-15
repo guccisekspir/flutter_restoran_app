@@ -33,7 +33,7 @@ class RestaurantController extends Controller
             return response()->json(['state' => 'unsuccessful']);
         }
 
-        $restaurant = Restaurant::create([
+        $restaurant = Restaurant::forceCreate([
             'name' => $request->name,
             'api_token' => Hash::make($request->name . time())
         ]);
