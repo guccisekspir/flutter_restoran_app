@@ -57,7 +57,6 @@ class OrderController extends Controller
 
     public function createOrderWithJSONRequest($id, Request $request)
     {
-        // TODO: get json request with POST and parse it, then foreach loop and adding each product
         $restaurant = Restaurant::findOrFail($id);
 
         $jsonRequest = json_decode($request->json, true);
@@ -67,27 +66,24 @@ class OrderController extends Controller
             'amount' => 'numeric'
         ];
 
-        $validator = Validator::make($jsonRequest, $rules);
-        if (!$validator->passes()) {
-            return response()->json(['state' => 'unsuccessful']);
-        }
-
         foreach ($jsonRequest as $order)
         {
+            $validator = Validator::make($order, $rules);
+            if (!$validator->passes()) {
+                return response()->json(['state' => 'unsuccessful']);
+            }
+
             $newOrder = $restaurant->order()->create([
                 'product_id' => $order->product_id,
                 'table_id' => $order->table_id,
                 'amount' => $order->amount
             ]);
 
-            $restaurant->table()->update([
-
+            $restaurant->table()->where('id', $order->table_id)->update([
+                'amount' => $restaurant->table()->where('id', $table_id)->getTotalPrice()
             ]);
         }
 
-
-
         return response()->json(['state' => 'orders taken']);
     }
-    // TODO: Test table close, add new order functions etc.
 }
