@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class RestaurantController extends Controller
@@ -33,7 +34,8 @@ class RestaurantController extends Controller
         }
 
         $restaurant = Restaurant::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'api_token' => Hash::make($request->name . time())
         ]);
 
         return response()->json($restaurant);

@@ -7,6 +7,14 @@ Api server altyapısı Laravel kullanmaktadır. API server belirli endpointler i
 Sisteminizde PHP 7.3 ve üzeri sürüm, MariaDB 10.4, Composer paketleri kurulu olmalıdır. Paketler düzgün şekilde konfigüre edildikten sonra `php artisan serve` komutu ile başlatılabilir.
 Veritabanı tablolarını edinebilmek için `php artisan migrate` komutunu çalıştırmanız gerekmektedir. Ayrıca `.env` dosyasını da kendi bilgilerinizle doldurmanız gerekmektedir.
 
+## API Auth sistemi nasıl çalışır?
+Dışarıdan izinsiz querylerde bulunulmaması için restoranlar tanımlanırken bir api_token oluşturulur.
+İzin verilmeyen rotalara erişim sağlayabilmek için request içeriğinizde api_token de göndermeniz gerekmektedir. 
+API tokeni alabilmek için sistem yöneticisi ile iletişime geçilmesi gerekmektedir, aksi takdirde uygulama çalışmayacaktır.
+
+Örneğin:
+* api/restaurant/1/edit (izin verilmedi)
+* api/restaurant/1/edit?api_token=$2y$10$YztAMrN08mXAx7J7g3moS.1k78yikQ6VcI91KwFMJwG2y3F4LNm8C (izin verildi, işlem gerçekleştirilir)
 
 ## API Endpoints
 
