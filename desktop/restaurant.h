@@ -3,6 +3,7 @@
 #include <QString>
 #include <vector>
 #include <iomanip>
+#include <QTableWidgetItem>
 
 #include "product.h"
 #include "table.h"
@@ -26,7 +27,8 @@ public:
     bool addOrder(QString tableName, QString productName, int quantity);
     bool deleteOrder(QString tableName, QString productName, int quantity);
 
-    void checkOut(QString name);
+    void checkOut(QString tableName);
+    void checkOut(QString tableName, QList<QTableWidgetItem*> products);
 
     void printTables();
     void printProducts();
@@ -41,6 +43,7 @@ public:
     Table*  getTable(QString tableName);
     vector<Table> getTables();
     vector<Product> getProducts();
+    Product* getProduct(QString name);
 };
 
 #endif // RESTAURANT_H

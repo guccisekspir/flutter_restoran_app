@@ -29,6 +29,8 @@ private slots:
 
     void on_pushButton_removeProduct_clicked();
 
+    void on_pushButton_saveChanges_clicked();
+
 private:
     Ui::SettingsDialog *ui;
     Restaurant* restaurant;

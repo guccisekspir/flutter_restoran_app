@@ -17,7 +17,6 @@ void SettingsDialog::setRestaurant(Restaurant *res){
     restaurant = res;
     qDebug() << restaurant->getName() << " aktarıldı.";
     this->setWindowTitle(restaurant->getName() + " Settings Panel");
-
 }
 
 void SettingsDialog::listWidgetUpdateTables(){
@@ -96,4 +95,9 @@ void SettingsDialog::on_pushButton_removeProduct_clicked()
             qDebug() << name << " adlı eleman silinemedi." << endl;
         }
     }
+}
+
+void SettingsDialog::on_pushButton_saveChanges_clicked()
+{
+    restaurant->setName(ui->lineEdit_restaurantName->text());
 }

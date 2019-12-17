@@ -43,10 +43,23 @@ bool Restaurant::deleteOrder(QString tableName, QString productName, int quantit
     return false;
 }
 
-void Restaurant::checkOut(QString name){
-    Table* table = tableList.getTableByName(name);
+void Restaurant::checkOut(QString tableName){
+    Table* table = tableList.getTableByName(tableName);
     _balance += table->paymentAmount();
     table->clearOrders();
+}
+
+void Restaurant::checkOut(QString tableName, QList<QTableWidgetItem*> orders){
+    Table* table = tableList.getTableByName(tableName);
+    for(auto order : orders){
+        for(auto tableOrder : table->getOrders()){
+            if(order->text() == tableOrder._product->getName()){
+                _balance += tableOrder._product->getPrice();
+                table->deleteOrder(tableOrder._product->getName(), 1);
+                break;
+            }
+        }
+    }
 }
 
 
@@ -126,4 +139,8 @@ vector<Table> Restaurant::getTables(){
 
 vector<Product> Restaurant::getProducts(){
     return *productList.getProducts();
+}
+
+Product* Restaurant::getProduct(QString name){
+    return productList.getProductByName(name);
 }
